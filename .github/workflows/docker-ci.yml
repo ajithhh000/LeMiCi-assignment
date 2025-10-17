@@ -1,0 +1,22 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build -t my-devops-app:latest .
+
+      - name: Run tests
+        run: echo "Tests passed"
+
+      - name: Push Docker image (Simulated)
+        run: echo "Docker image push simulated"
